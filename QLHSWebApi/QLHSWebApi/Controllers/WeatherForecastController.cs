@@ -29,5 +29,11 @@ namespace QLHSWebApi.Controllers
             })
             .ToArray();
         }
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        [HttpGet(Name = "hello")]
+        public IActionResult SayHello()
+        {
+            return Ok("Helllo World");
+        }
     }
 }

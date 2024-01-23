@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLHS_WEB_API", "QLHS_WEB_API.csproj", "{37883600-5274-47EC-A88A-51A132131252}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\Model\Model.csproj", "{8B0A7B7F-2D28-410C-9BD4-9C913A302787}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{37883600-5274-47EC-A88A-51A132131252}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37883600-5274-47EC-A88A-51A132131252}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37883600-5274-47EC-A88A-51A132131252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B0A7B7F-2D28-410C-9BD4-9C913A302787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B0A7B7F-2D28-410C-9BD4-9C913A302787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B0A7B7F-2D28-410C-9BD4-9C913A302787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B0A7B7F-2D28-410C-9BD4-9C913A302787}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

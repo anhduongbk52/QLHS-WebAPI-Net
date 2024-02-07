@@ -1,5 +1,7 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Model.Models;
+using QLHS_WEB_API.Repositories;
+using QLHS_WEB_API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,15 +16,21 @@ builder.Services.AddDbContext<EemcdrContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyDBConnection"));
 });
+// Đăng ký IUserService
+builder.Services.AddScoped<IUserService,UserService>();
+// Đăng ký IUserRepository
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

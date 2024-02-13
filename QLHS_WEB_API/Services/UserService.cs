@@ -1,4 +1,5 @@
-﻿using QLHS_WEB_API.Repositories;
+﻿using Model.Models;
+using QLHS_WEB_API.Repositories;
 
 namespace QLHS_WEB_API.Services
 {
@@ -12,6 +13,15 @@ namespace QLHS_WEB_API.Services
         public string GetFullNameByUserName(string userName)
         {
             return _userRepository.GetFullNameByUserName(userName);
+        }
+
+        public User GetUserById(int id)
+        {
+            return _userRepository.GetUserById(id);
+        }
+        public LoginResult Validate(string userName, string password)
+        {
+            return _userRepository.Validate( userName, password);
         }
     }
 }

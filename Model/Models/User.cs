@@ -39,7 +39,7 @@ public partial class User
 
     public int? StateId { get; set; }
 
-    public int Status { get; set; }
+    public UserStatus Status { get; set; }
 
     public byte[]? EcprKeyForMsg { get; set; }
 

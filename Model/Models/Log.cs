@@ -17,7 +17,7 @@ public partial class Log
 
     public string? Description { get; set; }
 
-    public int LogType { get; set; }
+    public LogType LogType { get; set; }
 
     public virtual User User { get; set; } = null!;
 }

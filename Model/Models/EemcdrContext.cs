@@ -1268,6 +1268,8 @@ public partial class EemcdrContext : DbContext
             entity.Property(e => e.SercondaryVoltage4).HasMaxLength(50);
             entity.Property(e => e.Station).HasMaxLength(50);
         });
+        modelBuilder.Entity<User>().Property(e => e.Status).HasConversion(v=>(int)v,v=>(UserStatus)v);
+        modelBuilder.Entity<Log>().Property(e => e.LogType).HasConversion(v => (int)v, v => (LogType)v);
 
         OnModelCreatingPartial(modelBuilder);
     }

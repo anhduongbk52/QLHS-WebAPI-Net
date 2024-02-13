@@ -1,39 +1,40 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using Model.Models;
+using QLHS_WEB_API.Dtos;
 using QLHS_WEB_API.Services;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace QLHS_WEB_API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UserController:ControllerBase
     {
-
         private readonly IUserService _userService;
-
         public UserController(IUserService userService)
         {
             _userService = userService;
-        }
-        //https://localhost:5065/api/user/GetFullNameByUserName
-        //http://192.168.11.12:5065/user/GetFullNameByUserName
+        }       
         [HttpGet("GetFullNameByUserName")]
-        public IActionResult GetFullNameByUserName(string userName)
+        public IActionResult GetFullNameByUserName()
         {
             try
             {
-                var fullName = _userService.GetFullNameByUserName(userName);
-                return Ok(fullName);
+                var claimsIdentity = HttpContext.User.Identity as ClaimsIdentity;
+                string someClaim = claimsIdentity.FindFirst("UserName").Value;
+                string result = _userService.GetFullNameByUserName(someClaim);
+                return Ok(result);
             }
-           catch (Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex.Message +"---"+ ex.StackTrace);
             }
-        }
-        [HttpGet("TEST")]
-        public IActionResult TEST()
-        {
-            
-            return Ok("Hello");
-        }
+        }        
     }
 }

@@ -1,6 +1,7 @@
 @QLHS_WEB_API_HostAddress = http://localhost:5065
-
-GET {{QLHS_WEB_API_HostAddress}}/weatherforecast/
+@Token =eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6ImR1b25nZGEiLCJuYmYiOjE3MDc3NTM1MTgsImV4cCI6MTcwNzc3NTExOCwiaWF0IjoxNzA3NzUzNTE4LCJpc3MiOiJxbGhzX2RyX1NlcnZpY2UiLCJhdWQiOiJkdW9uZ2RhQGVlbWMuY29tLnZuIn0.zPPO3fWfVK_ko_kEafAJ93uDkKRGV2qQialCFO9b1mw
+GET {{QLHS_WEB_API_HostAddress}}/User/
 Accept: application/json
+Authorization:Bearer{{Token}}
 
 ###
